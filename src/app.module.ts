@@ -7,7 +7,7 @@ import { ThrottlerModule } from "@nestjs/throttler";
 import { ConfigModule } from "@nestjs/config";
 import configuration from "./config/configuration";
 import { SequelizeModule } from "@nestjs/sequelize";
-import { UserModel } from "./users/user.model";
+import { UserModel } from "./users/entities/user.model";
 
 @Module({
   imports: [
@@ -24,7 +24,15 @@ import { UserModel } from "./users/user.model";
     }),
     SequelizeModule.forRoot({
       uri: configuration().database.host,
+      synchronize: true, // Add this line to automatically create tables in the database
       models: [UserModel],
+      logging: console.log,
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false, // You should ideally have this set to true in production for better security
+        },
+      },
     }),
   ],
   controllers: [AppController],

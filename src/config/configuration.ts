@@ -3,4 +3,7 @@ export default () => ({
   database: {
     host: process.env.DATABASE_URL,
   },
+  shaAlgo: {
+    sha256: process.env.SHA256_ALGO,
+  },
 });

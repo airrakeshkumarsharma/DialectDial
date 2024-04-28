@@ -2,8 +2,8 @@ import { Column, Model, Table, Unique } from "sequelize-typescript";
 
 @Table({ timestamps: true })
 export class UserModel extends Model {
-  @Column
   @Unique
+  @Column
   email: string;
 
   @Column

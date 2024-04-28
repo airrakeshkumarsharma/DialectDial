@@ -3,7 +3,7 @@ import { UsersService } from "./users.service";
 import { UsersController } from "./users.controller";
 import { AuthModule } from "src/auth/auth.module";
 import { SequelizeModule } from "@nestjs/sequelize";
-import { UserModel } from "./user.model";
+import { UserModel } from "./entities/user.model";
 
 @Module({
   controllers: [UsersController],
