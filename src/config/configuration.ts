@@ -6,4 +6,8 @@ export default () => ({
   shaAlgo: {
     sha256: process.env.SHA256_ALGO,
   },
+  twilio: {
+    accountSid: process.env.TWILIO_ACCOUNT_SID,
+    authToken: process.env.TWILIO_AUTH_TOKEN,
+  },
 });

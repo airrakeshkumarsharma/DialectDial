@@ -8,11 +8,13 @@ import { ConfigModule } from "@nestjs/config";
 import configuration from "./config/configuration";
 import { SequelizeModule } from "@nestjs/sequelize";
 import { UserModel } from "./users/entities/user.model";
+import { DialModule } from "./dial/dial.module";
 
 @Module({
   imports: [
     AuthModule,
     UsersModule,
+    DialModule,
     ThrottlerModule.forRoot([
       {
         ttl: 60000,
